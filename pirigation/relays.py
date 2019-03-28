@@ -32,7 +32,11 @@ for pin in gpioPins:
     GPIO.output(pin, GPIO.HIGH)
 #time the relay will be turned off in seconds between intervals. 1 or 2 seconds works well
 relayDelay = 1
+'''
+TO DO: create zone functions to turn on and off. Must have both functions 
+to call from manual html form.
 
+'''
 #zone_1() executes a full cycle of turning master valve and zone 1 valve on and off
 def zone_1():
     GPIO.output(master_valve, GPIO.HIGH)
