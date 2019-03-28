@@ -1,0 +1,254 @@
+{% extends "layout.html" %}
+{% block content %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {margin:0;}
+.icon-bar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+}
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.6s ease;
+    color: white;
+    font-size: 36px;
+}
+.icon-bar a:hover {
+    background-color: #000;
+}
+.active {
+    background-color: rgb(62, 122, 179);
+}
+.switch {
+	position: relative;
+	display: block;
+	vertical-align: top;
+	width: 100px;
+	height: 30px;
+	padding: 3px;
+	margin: 0 10px 10px 0;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+	border-radius: 18px;
+	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 10px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing:content-box;
+}
+.switch-label:before, .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing:content-box;
+}
+.switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+	color: #aaaaaa;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+	color: #FFFFFF;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+	background: rgb(18, 87, 197);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+	opacity: 1;
+}
+.switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.switch-handle:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.switch-input:checked ~ .switch-handle {
+	left: 74px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+ 
+/* Transition
+========================== */
+.switch-label, .switch-handle {
+	transition: All 0.3s ease;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
+.forms {
+    max-width: 500px;
+    margin: auto;
+}
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+.control {
+    margin: 1rem 0;
+}
+.weekDays-selector input {
+  display: none!important;
+}
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: rgb(11, 94, 202);
+  color: #ffffff;
+}
+.legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+.input {
+    margin: 1rem 0;
+    width: 60%;
+}
+.label {
+    display: inline-block;
+    font-size: .8rem;
+    width: 20%;
+}
+.input:invalid + span:after {
+    content: '✖';
+    color: #f00;
+    padding-left: 5px;
+}
+.input:valid + span:after {
+    content: '✓';
+    color: #26b72b;
+    padding-left: 5px;
+}
+</style>
+{% endblock %}
+</style>
+<body>
+<center>
+    <h1></h1>
+<div class="forms">
+	
+<h2>Watering Configuration Settings</h2>
+<fieldset>
+<form method="post" action="/post_data">   
+<label class="switch">
+        <input class="switch-input" type="checkbox" name="enabled_a" value="True"/>
+        <span class="switch-label" data-on="On" data-off="Off"></span> 
+        <span class="switch-handle"></span> 
+    </label>
+<p><b>Use only minutes for station cycle times.</b></p>
+<p><b>To disable a station, enter 0.</b></p>
+<legend>Schedule A Settings</legend>
+<ol>Station 1 Cycle Time <input type="number" placeholder="15" name="s1_runtime" min="0" max="35"></ol>
+<ol>Station 2 Cycle Time <input type="number" placeholder="15" name="s2_runtime" min="0" max="35"></ol>
+<ol>Station 3 Cycle Time <input type="number" placeholder="15" name="s3_runtime" min="0" max="35"></ol>
+<ol>Station 4 Cycle Time <input type="number" placeholder="15" name="s4_runtime" min="0" max="35"></ol>
+<ol>Station 5 Cycle Time <input type="number" placeholder="15" name="s5_runtime" min="0" max="35"></ol>
+<ol>Station 6 Cycle Time <input type="number" placeholder="15" name="s6_runtime" min="0" max="35"></ol>
+<ol>Station 7 Cycle Time <input type="number" placeholder="15" name="s7_runtime" min="0" max="35"></ol>
+<h1></h1>
+<div class="control">
+	<label for="appt-time">Cycle Start Time:</label>
+	<input type="time" id="cycletime" name="watertime"
+           min="01:00" max="23:99" required />
+
+            </div>
+            <div class="weekDays-selector">
+              <input type="checkbox" name="monday" value="True" id="weekday-mon" class="weekday" />
+              <label for="weekday-mon">M</label>
+              <input type="checkbox" name="tuesday" value="True" id="weekday-tue" class="weekday" />
+              <label for="weekday-tue">T</label>
+              <input type="checkbox" name="wednesday" value="True" id="weekday-wed" class="weekday" />
+              <label for="weekday-wed">W</label>
+              <input type="checkbox" name="thursday" value="True" id="weekday-thu" class="weekday" />
+              <label for="weekday-thu">T</label>
+              <input type="checkbox" name="friday" value="True" id="weekday-fri" class="weekday" />
+              <label for="weekday-fri">F</label>
+              <input type="checkbox" name="saturday" value="True" id="weekday-sat" class="weekday" />
+              <label for="weekday-sat">S</label>
+              <input type="checkbox" name="sunday" value="True" id="weekday-sun" class="weekday" />
+              <label for="weekday-sun">S</label>
+            </div>
+            <h1></h1>
+            <center>
+            <h5>Weather Settings</h5></center>
+            <ol><input type="text" pattern="(\d{5}([\-]\d{4})?)" placeholder="zipcode" name="zipcode" /></ol>
+            <ol><input type="submit" class="btn btn-primary mb-2" onclick="alert('Configuration Settings have been saved')" value="SAVE SETTINGS"></ol>
+
+        </form>
+        </fieldset>
+                      
+<h1></h1>
+<h1></h1>
+</center>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,6 @@
+# Don't track content of these folders
+_pycache_/
+.vs/
+.vscode
+sprinkler.db
+data.json
