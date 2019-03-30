@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from pirigation.models import Settings
 from pirigation import app, db
 from datetime import time
+import pirigation.relays as relays
 
 #comment
 @app.route("/")
@@ -17,40 +18,49 @@ def manual():
             print("Master Valve On")
         if request.form.get('station_one_on') == 'ON':
             print("station 1 on")
-            #single_relay.station_one()
+            relays.z1_on()
         if request.form.get('station_two_on') == 'ON':
             print("station 2 on")
-            #single_relay.station_two()
+            relays.z2_on()
         if request.form.get('station_three_on') == 'ON':
             print("station 3 on")
-            #single_relay.station_three()
+            relays.z3_on()
         if request.form.get('station_four_on') == 'ON':
             print("station 4 on")
-            #single_relay.station_four()
+            relays.z4_on()
         if request.form.get('station_five_on') == 'ON':
             print("station 5 on")
-            #single_relay.station_five()
+            relays.z5_on()
         if request.form.get('station_six_on') == 'ON':
             print("Station 6 On")
+            relays.z6_on()
         if request.form.get('station_seven_on') == 'ON':
             print("Station 7 On")
+            relays.z7_on()
  
         elif request.form.get('Master_OFF') == 'OFF':
             print('Master Valve Off')
         elif request.form.get('station_one_off') == 'OFF':
             print("Station 1 Off")
+            relays.z1_off()
         elif request.form.get('station_two_off') == 'OFF':
             print("Station 2 Off")
+            relays.z2_off()
         elif request.form.get('station_three_off') == 'OFF':
             print("Station 3 Off")
+            relays.z3_off()
         elif request.form.get('station_four_off') == 'OFF':
             print("Station 4 Off")
+            relays.z4_off()
         elif request.form.get('station_five_off') == 'OFF':
             print("Station 5 Off")
+            relays.z5_off()
         elif request.form.get('station_six_off') == 'OFF':
             print("Station 6 Off")
+            relays.z6_off()
         elif request.form.get('station_seven_off') == 'OFF':
             print("Station 7 Off")
+            relays.z7_off()
 
         else:
             return render_template('manual.html', title='Manual Settings')
