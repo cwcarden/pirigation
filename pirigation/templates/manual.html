@@ -1,90 +1,70 @@
 {% extends "layout.html" %}
 {% block content %}
 {% block head %}
-<style>
-div.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-  html, body{
-  min-height:100%;
-}
 
-body{
- background-image: -webkit-linear-gradient(top, rgba(153, 146, 163, 0.431), #cecbc9);
- background-image: linear-gradient(top, hsl(0, 0%, 1%), #cecbc9);
+<style>
+body {
+        text-align: center;
+
 }
 
 </style>
 {% endblock %}
-<center>
 <body>
+<br>
+<div class="container">
+        <div class="row">
+                        <div class="col-md-12 text-center">
+        <div class="btn-group">
+        <div class="btn-group"><form method = "post" action="/manual">
+
+        <div class="btn-group">
+        <input type="submit" class="btn btn-success btn-lg" value="ON" name="z1_on"/>
+        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z1_off"/>
+        </div>
+        
+        <div class="btn-group">
+        <input type="submit" class="btn btn-success btn-lg" value="ON" name="z2_on"/>
+        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z2_off"/>
+        </div>
+
+        <div class="btn-group">
+        <input type="submit" class="btn btn-success btn-lg" value="ON" name="z3_on"/>
+        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z3_off"/>
+</div>
+</form>
+</div>
 </div>
 <br>
-              <br>
+<br>
+<br>
+<br>
 
-<center>
-<div>
-        <ol><h4> Master Valve</h4>
-        <h6>Master Valve must be turned on for stations to be operable.</h6>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary btn-lg active" role="button"  aria-pressed="true" value="ON" name="Master_ON"/>
-        <input type="submit" class="btn btn-dark btn-lg active" role="button" aria-pressed="true" value="OFF" name="Master_OFF"/></div>
-</form></ol>
-</div>
-        <ol><h3> Station 1</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_one_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_one_off"/></div>
-</form></ol>
-       <ol><h3> Station 2</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_two_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_two_off"/></div>
-</form></ol>
-<ol><h3> Station 3</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_three_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_three_off"/></div>
-</form></ol>
-<ol><h3> Station 4</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_four_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_four_off"/></div>
-</form></ol>
-<ol><h3> Station 5</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_five_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_five_off"/></div>
-</form></ol>
-<ol><h3> Station 6</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_six_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_six_off"/></div>
-</form></ol> 
-<ol><h3> Station 7</h3>
-        <form method = "post" action="/manual">
-        <div class="btn-group" role="group" aria-label="toggle">
-        <input type="submit" class="btn btn-primary" value="ON" name="station_seven_on"/>
-        <input type="submit" class="btn btn-dark" value="OFF" name="station_seven_off"/></div>
-</form></ol>
+<div class="container">
+        <div class="row">
+                        <div class="col-md-12 text-center">
+                <div class="btn-group">
+                <div class="btn-group"><form method = "post" action="/manual">
+        
+                <div class="btn-group">
+                <input type="submit" class="btn btn-success btn-lg" value="ON" name="z4_on"/>
+                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z4_off"/>
+                </div>
+                
+                <div class="btn-group">
+                <input type="submit" class="btn btn-success btn-lg" value="ON" name="z5_on"/>
+                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z5_off"/>
+                </div>
+        
+                <div class="btn-group">
+                <input type="submit" class="btn btn-success btn-lg" value="ON" name="z6_on"/>
+                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z6_off"/></div>
+        </form>
+        </div>
+        </div>
+
+
 
 </body>
-</center>
 </html>
 {% endblock content %}
