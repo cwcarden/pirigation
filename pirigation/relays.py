@@ -14,7 +14,7 @@ for pin in gpio_pins:
 
 def mv_on():
     GPIO.output(master_valve, GPIO.HIGH)
-    GPIO.output(maseter_valve, GPIO.LOW)
+    GPIO.output(master_valve, GPIO.LOW)
 
 def mv_off():
     GPIO.output(master_valve, GPIO.HIGH)

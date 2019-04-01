@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from pirigation.models import Settings
 from pirigation import app, db
 from datetime import time
-#import pirigation.relays as relays
+import pirigation.relays as relays
 
 #comment
 @app.route("/")
@@ -16,16 +16,16 @@ def manual():
     if request.method == 'POST':
         if request.form.get('mv_on') == 'ON':
             print('Master Valve On')
-            #relays.mv_on()
+            relays.mv_on()
         if request.form.get('z1_on') == 'ON':
             print("station 1 on")
-            #relays.z1_on()
+            relays.z1_on()
         if request.form.get('z2_on') == 'ON':
             print("station 2 on")
-            #relays.z2_on()
+            relays.z2_on()
         if request.form.get('z3_on') == 'ON':
             print("station 3 on")
-            #relays.z3_on()
+            relays.z3_on()
         if request.form.get('z4_on') == 'ON':
             print("station 4 on")
             relays.z4_on()
