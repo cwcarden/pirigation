@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from pirigation.models import Settings
 from pirigation import app, db
 from datetime import time
-import pirigation.relays as relays
+#import pirigation.relays as relays
 
 #comment
 @app.route("/")
