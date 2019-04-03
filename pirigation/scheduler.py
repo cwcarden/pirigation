@@ -4,14 +4,12 @@ import sqlite3
 
 #checks and returns current cst time
 def current_time():
-    day_of_week = datetime.datetime.today().strftime('%A')
     current_time = time.strftime('%H%M')
     return(current_time)
 
 #checks and returns current day of the week
 def current_day():
     day_of_week = datetime.datetime.today().strftime('%A')
-    current_time = timestamp = time.strftime('%H%M')
     return(day_of_week)
 
 #checks if current datetime params == db schedule params
