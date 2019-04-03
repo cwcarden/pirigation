@@ -1,6 +1,7 @@
 from datetime import datetime
 from pirigation import db
 from flask_sqlalchemy import SQLAlchemy 
+import sqlite3
 
 class Settings(db.Model):
     __tablename__ = 'settings'
@@ -43,3 +44,40 @@ class Settings(db.Model):
     def __repr__(self):
         return '<Station A %r>' % self.enabled_a
         return '<Station 1 %r>' % self.s1_runtime
+def create_weather():
+    conn = sqlite3.connect('app.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE weather (
+        id INTEGER PRIMARY KEY,
+        api_key TEXT NOT NULL, 
+        longitude TEXT NOT NULL,
+        lattitude TEXT NOT NULL); ''')
+
+#creates default schedule table
+def create_schedule():
+    conn = sqlite3.connect('app.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE schedule (
+        id INTEGER PRIMARY KEY,
+        schedule_id INTEGER, 
+        enabled INTEGER NOT NULL,
+        start_time TEXT NOT NULL,
+        sun_enabled INTEGER NOT NULL,
+        mon_enabled INTEGER NOT NULL,
+        tue_enabled INTEGER NOT NULL,
+        wed_enabled INTEGER NOT NULL,
+        thu_enabled INTEGER NOT NULL,
+        fri_enabled INTEGER NOT NULL,
+        sat_enabled INTEGER NOT NULL); ''')
+
+#creates default zone table
+def create_zone():
+    conn = sqlite3.connect('app.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE zone (
+        id integer primary key,
+        zone_id INTEGER NOT NULL,
+        zone_enabled INTEGER NOT NULL,
+        runtime INTEGER NOT NULL,
+        schedule_id INTEGER NOT NULL,
+        FOREIGN KEY(schedule_id) REFERENCES schedule(schedule_id));''')
