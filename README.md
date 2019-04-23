@@ -7,3 +7,7 @@ To Install:
     Type in:  "from pirigation import db", then "db create_all()"
     This creates the database and database tables.
 4. To run with flask, navigate to root of flask directory where "start.py" file is located.  Run ython3.7 start.py
+
+ToDo:
+Need to rewrite database tables to work with new weather methods.
+
