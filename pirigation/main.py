@@ -45,5 +45,5 @@ def main():
         if scheduler() == True and rain_delay() == False:
             run_relays()
 
-if __name__=="__main__":
+if __name__=="__main__":#this is a comment the computer will never read this Ryah was here!
     main()
