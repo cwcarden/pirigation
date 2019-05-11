@@ -13,6 +13,19 @@ def weather_logger():
     -Log data to database or JSON file
 
 """
+def current_logger():
+    url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,daily,flags'
+    res = requests.get(url)
+    data = res.json()
+    current_data = {
+            "time": data['currently']['time'], "condition": data['currently']['summary'],
+            "precipProbability": data['currently']['precipProbability'],
+            "humidity": data['currently']['humidity'], "temperature": data['currently']['temperature'],
+            "wind": data['currently']['windSpeed'], "icon": data['currently']['icon']
+    }
+    with open('data.json', 'w') as f:
+        json.dump(current_data, f)
+    current_weather = current_data['icon']
 
 #Darksky api calls for water weather delay
 def current():
@@ -25,8 +38,6 @@ def current():
             "humidity": data['currently']['humidity'], "temperature": data['currently']['temperature'],
             "wind": data['currently']['windSpeed'], "icon": data['currently']['icon']
     }
-    with open('data.json', 'w') as f:
-        json.dump(current_data, f)
     current_weather = current_data['icon']
     if current_weather == 'rain':
         return True
