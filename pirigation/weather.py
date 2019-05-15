@@ -7,26 +7,6 @@ api_key = ""
 longitude = "35.2091"
 lattitude = "-101.8890"
 
-"""
-def weather_logger():
-    -Call current weather every 3 hours
-    -Log data to database or JSON file
-
-"""
-def current_logger():
-    url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,daily,flags'
-    res = requests.get(url)
-    data = res.json()
-    current_data = {
-            "time": data['currently']['time'], "condition": data['currently']['summary'],
-            "precipProbability": data['currently']['precipProbability'],
-            "humidity": data['currently']['humidity'], "temperature": data['currently']['temperature'],
-            "wind": data['currently']['windSpeed'], "icon": data['currently']['icon']
-    }
-    with open('data.json', 'w') as f:
-        json.dump(current_data, f)
-    current_weather = current_data['icon']
-
 #Darksky api calls for water weather delay
 def current():
     url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,daily,flags'
@@ -38,12 +18,20 @@ def current():
             "humidity": data['currently']['humidity'], "temperature": data['currently']['temperature'],
             "wind": data['currently']['windSpeed'], "icon": data['currently']['icon']
     }
+"""
+#write current weather to database every 4 hours for rain event logging
+    conn = sqlite3.connect('weather.db')
+    c = conn.cursor()
+    c.execute("CREATE TABLE IF NOT EXISTS weather_data (id ")
+    with open('data.json', 'a') as f:
+        json.dump(current_data, f)
+
     current_weather = current_data['icon']
     if current_weather == 'rain':
         return True
     else:
         return False
-
+"""
 def forecast():
     url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,current,daily,flags'
     res = requests.get(url)
