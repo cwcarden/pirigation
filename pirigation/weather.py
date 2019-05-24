@@ -2,12 +2,17 @@ import requests
 import json
 import time
 
+#initiate timestamp, api_key from darksky, and gps coordinates of location that will be used for weather data
 timestamp = int(time.time())
 api_key = ""
 longitude = "35.2091"
 lattitude = "-101.8890"
 
-#Darksky api calls for water weather delay
+"""
+Darksky api calls for water weather delay
+current function calls current weather, writes to database for history logging, then returns a boolean value
+for rain delay
+"""
 def current():
     url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,daily,flags'
     res = requests.get(url)
