@@ -2,6 +2,7 @@
 ![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/home.png)
 ![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/config.png)
 i![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/manual.png)
+i![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/unit.jpeg)
 
 To Install:
 1. First make sure you are using pipenv.  Use "pipenv install" to install dependencies.
