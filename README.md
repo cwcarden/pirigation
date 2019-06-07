@@ -14,4 +14,5 @@ To Install:
 
 ToDo:
 Need to rewrite database tables to work with new weather methods.
+Need to rewrite weather module. Currently it is broken.
 
