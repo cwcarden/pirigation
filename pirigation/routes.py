@@ -1,10 +1,28 @@
-from flask import Flask, render_template, url_for, flash, redirect, request 
+from flask import Flask, render_template, url_for, flash, redirect, request, Response 
 from pirigation.models import Settings
 from pirigation import app, db
 from datetime import time
+import io
+import random 
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 #import pirigation.relays as relays
 
-#comment
+@app.route('/plot.png')
+def plot_png():
+    fig = create_figure()
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
+
+def create_figure():
+    fig = Figure()
+    axis = fig.add_subplot(1, 1, 1)
+    xs = range(12)
+    ys = [random.randint(1, 100) for x in xs]
+    axis.plot(xs, ys)
+    return fig
+
 @app.route("/")
 @app.route("/index")
 def home():
