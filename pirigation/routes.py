@@ -6,6 +6,7 @@ import io
 import random 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+from pirigation import scheduler
 #import pirigation.relays as relays
 
 @app.route('/plot.png')
@@ -26,8 +27,9 @@ def create_figure():
 @app.route("/")
 @app.route("/index")
 def home():
+    func = scheduler.current_day() + " " + scheduler.current_time()
     watersettings = Settings.query.all()
-    return render_template('index.html', watersettings=watersettings, title="Home", watering=False)
+    return render_template('index.html', watersettings=watersettings, title="Home", watering=False, func=func)
 
 @app.route("/manual", methods=['GET', 'POST'])
 def manual():
