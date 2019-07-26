@@ -2,8 +2,15 @@
 {% block content %}
 {% block head %}
 {% endblock %}
+
+{% if watering == True %}
 <center><img src="static/images/watering.gif" width="150" height="100"></center>
 <center><h6>System Cycle Running...</h6></center>
+{% else %}
+<center>
+<h4>Next Cycle Scheduled tomorrow at 1130</h4>
+</center>
+{% endif %}
 <center>
     <br>
     <h3>Water Usage Graph</h3>

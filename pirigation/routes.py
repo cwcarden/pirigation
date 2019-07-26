@@ -27,7 +27,7 @@ def create_figure():
 @app.route("/index")
 def home():
     watersettings = Settings.query.all()
-    return render_template('index.html', watersettings=watersettings, title="Home")
+    return render_template('index.html', watersettings=watersettings, title="Home", watering=False)
 
 @app.route("/manual", methods=['GET', 'POST'])
 def manual():
