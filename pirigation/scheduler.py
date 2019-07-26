@@ -4,7 +4,7 @@ import sqlite3
 
 #checks and returns current cst time
 def current_time():
-    current_time = time.strftime('%H%M')
+    current_time = time.strftime('%H:%M')#temporarily formatted for colon for prettiness in index template
     return(current_time)
 
 #checks and returns current day of the week
