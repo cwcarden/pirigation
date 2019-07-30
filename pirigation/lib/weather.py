@@ -1,10 +1,12 @@
 import requests
 import json
 import time
+from config import Config
 
+def test():
+    print(Config.weather)
 #initiate timestamp, api_key from darksky, and gps coordinates of location that will be used for weather data
 timestamp = int(time.time())
-api_key = ""
 longitude = "35.2091"
 lattitude = "-101.8890"
 
@@ -14,7 +16,7 @@ current function calls current weather, writes to database for history logging, 
 for rain delay
 """
 def current():
-    url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,daily,flags'
+    url = f'https://api.darksky.net/forecast/{Config.weather["api_key"]}/{longitude},{lattitude}?exclude=minutely,daily,flags'
     res = requests.get(url)
     data = res.json()
     current_data = {
@@ -38,11 +40,11 @@ def current():
         return False
 """
 def forecast():
-    url = f'https://api.darksky.net/forecast/{api_key}/{longitude},{lattitude}?exclude=minutely,current,daily,flags'
+    url = f'https://api.darksky.net/forecast/{Config.weather["api_key"]}/{longitude},{lattitude}?exclude=minutely,current,daily,flags'
     res = requests.get(url)
     weather_data = res.json()
     six_hr_forcast = weather_data['hourly']['data'][7]['precipProbability']
-    if six_hr_forcast > 0.8:
+    if six_hr_forcast > Config.weather["rain_prob"]:
         return True # True for engage water
     else:
         return False

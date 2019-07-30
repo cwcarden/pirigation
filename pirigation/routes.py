@@ -35,47 +35,33 @@ def home():
 def manual():
     if request.method == 'POST':
         if request.form.get('mv_on') == 'ON':
-            print('Master Valve On')
             relays.mv_on()
         if request.form.get('z1_on') == 'ON':
-            print("station 1 on")
             relays.z1_on()
         if request.form.get('z2_on') == 'ON':
-            print("station 2 on")
             relays.z2_on()
         if request.form.get('z3_on') == 'ON':
-            print("station 3 on")
             relays.z3_on()
         if request.form.get('z4_on') == 'ON':
-            print("station 4 on")
             relays.z4_on()
         if request.form.get('z5_on') == 'ON':
-            print("station 5 on")
             relays.z5_on()
         if request.form.get('z6_on') == 'ON':
-            print("Station 6 On")
             relays.z6_on()
 
         elif request.form.get('mv_off') == 'OFF':
-            print("Master Valve Off")
             relays.mv_off()
         elif request.form.get('z1_off') == 'OFF':
-            print("Station 1 Off")
             relays.z1_off()
         elif request.form.get('z2_off') == 'OFF':
-            print("Station 2 Off")
             relays.z2_off()
         elif request.form.get('z3_off') == 'OFF':
-            print("Station 3 Off")
             relays.z3_off()
         elif request.form.get('z4_off') == 'OFF':
-            print("Station 4 Off")
             relays.z4_off()
         elif request.form.get('z5_off') == 'OFF':
-            print("Station 5 Off")
             relays.z5_off()
         elif request.form.get('z6_off') == 'OFF':
-            print("Station 6 Off")
             relays.z6_off()
 
         else:
