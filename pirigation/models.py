@@ -1,7 +1,7 @@
 from datetime import datetime
 from pirigation import db
 from flask_sqlalchemy import SQLAlchemy 
-import sqlite3
+#import sqlite3
 
 class Settings(db.Model):
     __tablename__ = 'settings'

@@ -7,8 +7,7 @@ name = "pypi"
 flask = "*"
 flask-sqlalchemy = "*"
 requests = "*"
-stringio = "*"
-matplotlib = "*"
+db-sqlite3 = "*"
 
 [dev-packages]
 pylint = "*"
