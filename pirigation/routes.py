@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, flash, redirect, request, Response 
+from flask import Flask, render_template, url_for, flash, redirect, request, Response
+import requests
 from pirigation.models import Settings
 from pirigation import app, db
 from datetime import time
@@ -18,10 +19,11 @@ def home():
 def manual():
     if request.method == 'POST':
         if request.form.get('mv_on') == 'ON':
-            relays.mv_on()
+            requests.post('http://192.168.1.32:4000/relays_on', data={'relay':'mv_on'})
+            
         elif request.form.get('mv_off') == 'OFF':
-            print("master off")
-
+            requests.post('http://192.168.1.32:4000/relays_on', data={'relay':'mv_on'})
+        
         if request.form.get('z1_on') == 'ON':
             relays.z1_on()
         elif request.form.get('z1_off') == 'OFF':

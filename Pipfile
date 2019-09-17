@@ -8,6 +8,7 @@ flask = "*"
 flask-sqlalchemy = "*"
 requests = "*"
 db-sqlite3 = "*"
+request = "*"
 
 [dev-packages]
 pylint = "*"
