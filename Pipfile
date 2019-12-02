@@ -9,6 +9,8 @@ flask-sqlalchemy = "*"
 requests = "*"
 db-sqlite3 = "*"
 request = "*"
+python-dateutil = "*"
+pytz = "*"
 
 [dev-packages]
 pylint = "*"

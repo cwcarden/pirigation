@@ -1,5 +1,3 @@
-
-[![GitHub license](https://img.shields.io/badge/Build-failing-red)](https://github.com/equineranch/desk_control)
 ![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/logo.png?raw=true)
 ![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/home.png)
 ![image](https://github.com/equineranch/PIrigation/blob/master/pirigation/static/images/config.png)

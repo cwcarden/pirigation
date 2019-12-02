@@ -5,15 +5,12 @@ from pirigation import app, db
 from datetime import time
 import io
 import random 
-from pirigation.lib import scheduler
-#import pirigation.lib.relays
+#from pirigation.lib import scheduler
 
 @app.route("/")
 @app.route("/index")
 def home():
-    func = scheduler.current_day() + " " + scheduler.current_time()
-    watersettings = Settings.query.all()
-    return render_template('index.html', watersettings=watersettings, title="Home", watering=False, func=func)
+    return render_template('index.html', title="Home", watering=False)
 
 @app.route("/manual", methods=['GET', 'POST'])
 def manual():

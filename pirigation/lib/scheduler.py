@@ -1,8 +1,8 @@
-import weather
+#import weather
 import datetime
 import dateutil.parser
 import pytz #time zone support module
-import config
+#import config
 
 def is_raining():
     """ checks if it is currently raining """
