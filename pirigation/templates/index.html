@@ -3,20 +3,87 @@
 {% block head %}
 {% endblock %}
 
-{% if watering == True %}
-<center><img src="static/images/watering.gif" width="150" height="100"></center>
-<center><h6>System Cycle Running...</h6></center>
-{% else %}
-<center>
-<h4>{{ func }}</h4>
-</center>
-{% endif %}
-<center>
-    <br>
-    <h3>Water Usage Graph</h3>
+<style>
 
-    </center>
-<footer><center>
+.btn-controls {
+    padding: 10%;
+    width: align-self: auto;
+    height: align-self: auto;
+
+}
+.a {
+    color: white;
+    background-color:rgb(51, 78, 100);
+    padding: 60px 20px;
+    border-color: white;
+    border-radius: 15px;
+    border-width: 5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    display: inline-block;
+}
+.a:hover {opacity: 1}
+
+.b {
+    color: white;
+    background-color:rgb(51, 78, 100);
+    padding: 60px 20px;
+    border-color: white;
+    border-radius: 15px;
+    border-width: 5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    display: inline-block;
+}
+.b:hover {opacity: 1}
+.c {
+    color: white;
+    background-color:rgb(51, 78, 100);
+    padding: 60px 20px;
+    border-color: white;
+    border-radius: 15px;
+    border-width: 5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    display: inline-block;
+}
+.c:hover {opacity: 1}
+.d {
+    color: white;
+    background-color:rgb(51, 78, 100);
+    padding: 60px 20px;
+    border-color: white;
+    border-radius: 15px;
+    border-width: 5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    display: inline-block;
+}
+.d:hover {opacity: 1}
+.d:hover {opacity: 1}
+
+</style>
+<body>
+{% if watering == True %}
+<img src="static/images/watering.gif" width="150" height="100">
+<h6>System Cycle Running...</h6>
+{% else %}
+<h4>{{ func }}</h4>
+{% endif %}
+   <center>
+<div class="btn-group">
+        <button class="a" onclick="window.location.href = '{{ url_for("settings") }}';">System Settings</button>
+        <button class="b" onclick="window.location.href = '{{ url_for("manual") }}';">Manual Control</button>
+        <button class="c" onclick="window.location.href = '{{ url_for("settings") }}';">Water History</button>
+        <button class="d" onclick="window.location.href = '{{ url_for("settings") }}';">Weather History</button>
+
+</div>
+</body>
+
+
+
+<footer>
 <h6><a href ="https://darksky.net/poweredby/">Powered by Dark Sky</a></h6>
-</center></footer>
+</footer>
+</center>
 {% endblock content %}
