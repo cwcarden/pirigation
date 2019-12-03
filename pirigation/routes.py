@@ -80,3 +80,11 @@ def post_data():
     db.session.add(usersett)
     db.session.commit()
     return redirect(url_for('settings'))
+
+@app.route('/water', methods=['GET'])
+def water():
+    return render_template("water.html")
+
+@app.route('/weather', methods=['GET'])
+def weather():
+    return render_template("weather.html")
