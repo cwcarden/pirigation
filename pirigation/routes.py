@@ -10,7 +10,7 @@ import random
 @app.route("/")
 @app.route("/index")
 def home():
-    return render_template('index.html', title="Home", watering=False)
+    return render_template('index.html', title="Home", watering=True)
 
 @app.route("/manual", methods=['GET', 'POST'])
 def manual():
@@ -69,14 +69,15 @@ def settings():
 @app.route('/post_data', methods=['POST'])
 def post_data():
     usersett = Settings(
-    request.form.get('enabled_a'), request.form.get('s1_runtime'),
+    request.form.get('s1_runtime'),
     request.form.get('s2_runtime'), request.form.get('s3_runtime'),
     request.form.get('s4_runtime'), request.form.get('s5_runtime'),
-    request.form.get('s6_runtime'), request.form.get('s7_runtime'),
-    request.form.get('watertime'), request.form.get('monday'),
-    request.form.get('tuesday'), request.form.get('wednesday'),
-    request.form.get('thursday'),request.form.get('friday'),
-    request.form.get('saturday'),request.form.get('sunday')) 
+    request.form.get('s6_runtime'),request.form.get('watertime'), 
+    request.form.get('monday'), request.form.get('tuesday'), 
+    request.form.get('wednesday'), request.form.get('thursday'),
+    request.form.get('friday'), request.form.get('saturday'),
+    request.form.get('sunday')) 
+ 
     db.session.add(usersett)
     db.session.commit()
     return redirect(url_for('settings'))

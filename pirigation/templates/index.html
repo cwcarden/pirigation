@@ -62,14 +62,35 @@
 .d:hover {opacity: 1}
 .d:hover {opacity: 1}
 
+.grid_container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  background-color: rgb(51, 78, 100);
+  padding: 10px;
+}
+.grid_one {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 8px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+
+
+
 </style>
 <body>
+<center>
 {% if watering == True %}
 <img src="static/images/watering.gif" width="150" height="100">
 <h6>System Cycle Running...</h6>
 {% else %}
 <h4>{{ func }}</h4>
 {% endif %}
+</center>
    <center>
 <div class="btn-group">
         <button class="a" onclick="window.location.href = '{{ url_for("settings") }}';">System Settings</button>
@@ -78,9 +99,25 @@
         <button class="d" onclick="window.location.href = '{{ url_for("weather") }}';">Weather History</button>
 
 </div>
+<br>
+</br>
+</br>
+<h2>Current Schedule</h2>
+<div class="grid_container"> 
+
+<div class="grid_one">Zone 1</div>
+<div class="grid_one">Zone 2</div>
+<div class="grid_one">Zone 3</div>
+<div class="grid_one">Zone 4</div>
+<div class="grid_one">Zone 5</div>
+<div class="grid_one">Zone 6</div>
+
+
+
+</div>
 </body>
 
-
+</br>
 
 <footer>
 <h6><a href ="https://darksky.net/poweredby/">Powered by Dark Sky</a></h6>

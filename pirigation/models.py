@@ -6,14 +6,12 @@ from flask_sqlalchemy import SQLAlchemy
 class Settings(db.Model):
     __tablename__ = 'settings'
     id = db.Column(db.Integer, primary_key=True)
-    enabled_a = db.Column(db.String(5), nullable=True)
     s1_runtime = db.Column(db.Integer, nullable=True)
     s2_runtime = db.Column(db.Integer, nullable=True)
     s3_runtime = db.Column(db.Integer, nullable=True)
     s4_runtime = db.Column(db.Integer, nullable=True)
     s5_runtime = db.Column(db.Integer, nullable=True)
     s6_runtime = db.Column(db.Integer, nullable=True)
-    s7_runtime = db.Column(db.Integer, nullable=True)
     watertime = db.Column(db.String(15), nullable=True)
     monday = db.Column(db.String(5), nullable=True)
     tuesday = db.Column(db.String(5), nullable=True)
@@ -23,9 +21,8 @@ class Settings(db.Model):
     saturday = db.Column(db.String(5), nullable=True)
     sunday = db.Column(db.String(5), nullable=True)
 
-    def __init__(self, enabled_a, s1_runtime, s2_runtime, s3_runtime, s4_runtime, s5_runtime, s6_runtime, s7_runtime, watertime, monday, tuesday, wednesday, thursday, friday, saturday, sunday):
+    def __init__(self,s1_runtime, s2_runtime, s3_runtime, s4_runtime, s5_runtime, s6_runtime, watertime, monday, tuesday, wednesday, thursday, friday, saturday, sunday):
 
-        self.enabled_a = enabled_a
         self.s1_runtime = s1_runtime
         self.s2_runtime = s2_runtime 
         self.s3_runtime = s3_runtime 
@@ -60,7 +57,6 @@ def create_schedule():
     c.execute('''CREATE TABLE schedule (
         id INTEGER PRIMARY KEY,
         schedule_id INTEGER, 
-        enabled INTEGER NOT NULL,
         start_time TEXT NOT NULL,
         sun_enabled INTEGER NOT NULL,
         mon_enabled INTEGER NOT NULL,
