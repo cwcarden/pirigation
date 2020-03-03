@@ -15,39 +15,39 @@ def home():
 @app.route("/manual", methods=['GET', 'POST'])
 def manual():
     if request.method == 'POST':
-        if request.form.get('mv_on') == 'ON':
-            requests.post('http://192.168.1.32:4000/relays_on', data={'relay':'mv_on'})
+        if request.form.get('mv_on') == 'Master':
+            print("The Master is on")
             
         elif request.form.get('mv_off') == 'OFF':
-            requests.post('http://192.168.1.32:4000/relays_on', data={'relay':'mv_on'})
+            print("Master off")
         
-        if request.form.get('z1_on') == 'ON':
-            relays.z1_on()
+        if request.form.get('z1_on') == 'Zone 1':
+            print('zone 1 on')
         elif request.form.get('z1_off') == 'OFF':
             print('zone 1 off')
 
-        if request.form.get('z2_on') == 'ON':
-            relays.z2_on()
+        if request.form.get('z2_on') == 'Zone 2':
+            print('zone 2 on')
         elif request.form.get('z2_off') == 'OFF':
             print('zone 2 off')
 
-        if request.form.get('z3_on') == 'ON':
-            relays.z3_on()
+        if request.form.get('z3_on') == 'Zone 3':
+            print('zone 3 on')
         elif request.form.get('z3_off') == 'OFF':
             print('zone 3 off')
 
-        if request.form.get('z4_on') == 'ON':
-            relays.z4_on()
+        if request.form.get('z4_on') == 'Zone 4':
+            print('zone 4 on')
         elif request.form.get('z4_off') == 'OFF':
             print('zone 4 off')
 
-        if request.form.get('z5_on') == 'ON':
-            relays.z5_on()
+        if request.form.get('z5_on') == 'Zone 5':
+            print('zone 5 on')
         elif request.form.get('z5_off') == 'OFF':
             print('zone 5 off')
 
-        if request.form.get('z6_on') == 'ON':
-            relays.z6_on()
+        if request.form.get('z6_on') == 'Zone 6':
+            print('zone 6 on')
         elif request.form.get('z6_off') == 'OFF':
             print('zone 6 off')
 
