@@ -1,82 +1,119 @@
 {% extends "layout.html" %}
 {% block content %}
 {% block head %}
-
-<style>
-body {
-        text-align: center;
-}
-</style>
 {% endblock %}
-
-
-<body>
-    <div class="container">
-        <div class="row">
-                        <div class="col-md-12 text-center">
-        <div class="btn-group">
-        <div class="btn-group"><form method="post" action="/manual">
-        <div class="btn-group">
-        <input type="submit" class="btn btn-primary btn-lg" value="Master" name="mv_on"/>
-        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="mv_off"/>
-        </div>
-        <br>
-</div>
-</form>
-</div>
-</div>
-.
 <div class="container">
-        <div class="row">
-                        <div class="col-md-12 text-center">
-        <div class="btn-group">
-        <div class="btn-group"><form method = "post" action="/manual">
-        
-        <div class="btn-group">
-        <input type="submit" class="btn btn-success btn-lg" value="Zone 1" name="z1_on"/>
-        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z1_off"/>
-        </div>
-        
-        <div class="btn-group">
-        <input type="submit" class="btn btn-success btn-lg" value="Zone 2" name="z2_on"/>
-        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z2_off"/>
-        </div>
+    <div class="row">
+        <div class="col md-12">
 
+            <div class="jumbotron p-3">
+
+                <center><h2><b>Manual Sprinkler Control</b></h2></center>
+
+
+                <table class="table table-hover table-dark"
+
+                <tr>
+                    <th>Station</th>
+                    <th>Status</th>  
+                    <th>Relay Control</th>
+                </tr>
+
+                <tr>
+                    <td>Master Valve</td>
+                    <td><b>{{ status.mv }}</b>  {{ start_time.mv }}</td>
+                    <td>
+                        <form method="post" action="/index">
+                        <div class="btn-group">
+                        <input type="submit" class="btn btn-outline-warning btn-xs" value="ON" name="mv_on"/>
+                        <input type="submit" class="btn btn-outline-danger btn-xs" value="OFF" name="mv_off"/>
+                        </div></form>
+                    </td>
+
+<tr>
+                </tr>
+
+                <tr>
+                    <td>Back Yard Upper</td>
+                    <td><b>{{ status.z1 }}</b>  {{ start_time.z1 }}</td>
+                    <td>
+                        <div class="btn-group"><form method = "post" action="/index">
+        
         <div class="btn-group">
-        <input type="submit" class="btn btn-success btn-lg" value="Zone 3" name="z3_on"/>
-        <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z3_off"/>
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z1_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z1_off"/>
+        </div>
+                    </td>
+
+                   <tr>
+                    <td>Back Yard Lower</td>
+                    <td><b>{{ status.z2 }}</b>  {{ start_time.z2 }}</td>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z2_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z2_off"/>
+        </div>
+                    </td>
+
+                    <tr>
+                    <td>Front Yard Doorside</td>
+                    <td><b>{{ status.z3 }}</b>  {{ start_time.z3 }}</td>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z3_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z3_off"/>
+        </div>
+                    </td>
+
+                    <tr>
+                    <td>Front Yard Mound</td>
+                    <td><b>{{ status.z4 }}</bd>  {{ start_time.z4 }}</td<>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z4_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z4_off"/>
+        </div>
+                    </td>
+
+                    <tr>
+                    <td>Front Yard Southside</td>
+                    <td><b>{{ status.z5 }}</b>  {{ start_time.z5 }}</td>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z5_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z5_off"/>
+        </div>
+                    </td>
+
+                    <tr>
+                    <td>Raised Garden</td>
+                    <td><b>{{ status.z6 }}</b>  {{ start_time.z6 }}</td>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z6_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z6_off"/>
+        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Front-North & Grapes</td>
+                    <td><b>{{ status.z7 }}</b>  {{ start_time.z7 }}</td>
+                    <td>
+                        <div class="btn-group">
+        <input type="submit" class="btn btn-warning btn-xs" value="ON" name="z7_on"/>
+        <input type="submit" class="btn btn-danger btn-xs" value="OFF" name="z7_off"/>
+        </div>
+                    </td>
+                </tr>
+
+                </tr>
+
+                </table></form>
+            </div>
+        </div>
+    </div>
 </div>
-</form>
-</div>
-</div>
-<br>
-<br>
-<div class="container">
-        <div class="row">
-                        <div class="col-md-12 text-center">
-                <div class="btn-group">
-                <div class="btn-group"><form method = "post" action="/manual">
-        
-                <div class="btn-group">
-                <input type="submit" class="btn btn-success btn-lg" value="Zone 4" name="z4_on"/>
-                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z4_off"/>
-                </div>
-                
-                <div class="btn-group">
-                <input type="submit" class="btn btn-success btn-lg" value="Zone 5" name="z5_on"/>
-                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z5_off"/>
-                </div>
-        
-                <div class="btn-group">
-                <input type="submit" class="btn btn-success btn-lg" value="Zone 6" name="z6_on"/>
-                <input type="submit" class="btn btn-dark btn-lg" value="OFF" name="z6_off"/></div>
-                
-        </form>
-        </div>
-        </div>
 
 
-
-</body>
-</html>
-{% endblock content %}
+{% endblock %}
