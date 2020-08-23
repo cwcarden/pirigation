@@ -8,13 +8,14 @@ To Install:
 1. First make sure you are using pipenv.  Use "pipenv install" to install dependencies.
 2. Some dependencies need to be installed locally outside of pipenv.  Make sure you have "RPi.GPIO installed" using "sudo apt-get install RPi.GPIO".
 3. PIrigation uses SQLite.  After installing dependencies, navigate to root of flask project, then open a Python REPL. 
-    Type in:  "from pirigation import db", then "db create_all()"
-    This creates the database and database tables.
+  Type in:  
+    1. "from pirigation import db", 
+    2. "db create_all()"
+  This creates the database and database tables.
 4. To run with flask, navigate to root of flask directory where "start.py" file is located.  Run python3.7 start.py
 
 ToDo:
 Need to rewrite database tables to work with new weather methods.
-Need to rewrite weather module. Currently it is broken.
-Need to rewrite entire app I am so pissed right now.
+Need to rewrite weather module. Currently it is broken as I am changing from darksky since Apple owns it now and wants to charge for its use.
 
 [![GitHub license](https://img.shields.io/badge/Build-failing-red)](https://github.com/equineranch/desk_control)
