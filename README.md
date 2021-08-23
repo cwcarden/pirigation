@@ -12,7 +12,8 @@ To Install:
     1. "from pirigation import db", 
     2. "db create_all()"
   This creates the database and database tables.
-4. To run with flask, navigate to root of flask directory where "start.py" file is located.  Run python3.7 start.py
+4. To run with flask, navigate to root of flask directory where "start.py" file is located.  Run python3.7 start.py 
+4a. Need to upgrade to python 3.9.
 
 ToDo:
 Need to rewrite database tables to work with new weather methods.
