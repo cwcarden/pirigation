@@ -18,3 +18,5 @@ To Install:
 ToDo:
 Need to rewrite database tables to work with new weather methods.
 Need to rewrite weather module. Currently it is broken as I am changing from darksky since Apple owns it now and wants to charge for its use.
+Change error messages completely.
+Use elixir instead of python.
